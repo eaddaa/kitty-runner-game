@@ -1,0 +1,165 @@
+.wallet-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  z-index: 1000;
+}
+
+/* Ana bağlantı butonu */
+.wallet-button {
+  background: linear-gradient(135deg, #FF69B4, #ff4da6);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.wallet-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+  background: linear-gradient(135deg, #ff4da6, #FF69B4);
+}
+
+.wallet-button:disabled {
+  background: linear-gradient(135deg, #888, #666);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.7;
+  pointer-events: none; /* Disable clickability */
+}
+
+/* Bağlı cüzdan bilgileri */
+.wallet-info {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 15px 20px;
+  border-radius: 16px;
+  border: 2px solid rgba(255, 105, 180, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 220px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Cüzdan adresi */
+.wallet-address {
+  font-family: 'Roboto Mono', monospace;
+  color: #FF69B4;
+  font-size: 14px;
+  padding: 6px 10px;
+  background: rgba(255, 105, 180, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wallet-address::before {
+  content: "•";
+  color: #4CAF50;
+  font-size: 24px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+/* Token bakiyesi */
+.wallet-balance {
+  font-size: 14px;
+  color: #fff;
+  opacity: 0.9;
+  padding: 4px 0;
+}
+
+/* Bağlantıyı kes butonu */
+.wallet-disconnect {
+  background: transparent;
+  color: #FF69B4;
+  border: 1px solid #FF69B4;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+.wallet-disconnect:hover {
+  background: rgba(255, 105, 180, 0.1);
+  border-color: #ff4da6;
+  color: #ff4da6;
+}
+
+/* Hata mesajı */
+.wallet-error {
+  background: rgba(255, 59, 48, 0.1);
+  border: 1px solid rgba(255, 59, 48, 0.3);
+  color: #FF3B30;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  max-width: 250px;
+  text-align: center;
+  animation: shake 0.5s ease-in-out;
+  backdrop-filter: blur(10px);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Mobil uyumluluk */
+@media (max-width: 768px) {
+  .wallet-container {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding: 10px;
+    align-items: center;
+  }
+
+  .wallet-info {
+    width: 100%;
+    max-width: 300px;
+    padding: 20px;
+  }
+
+  .wallet-button {
+    width: 100%;
+    max-width: 300px;
+  }
+}

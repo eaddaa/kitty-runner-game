@@ -1,0 +1,131 @@
+/* Game Container */
+.game-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Game Canvas */
+.game-canvas {
+  border: 2px solid #FF69B4;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.2);
+}
+
+/* Game Title */
+.game-title-container {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.game-title {
+  font-size: 72px;
+  font-weight: bold;
+  display: flex;
+  gap: 10px;
+  filter: drop-shadow(0 0 15px rgba(255, 105, 180, 0.3));
+}
+
+.title-letter {
+  display: inline-block;
+  color: transparent;
+  background: linear-gradient(135deg, #FF69B4, #ff1493);
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: titleAnimation 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* Game Score */
+.game-score {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 24px;
+  color: #FF69B4;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.combo {
+  color: #ff4da6;
+  font-weight: bold;
+  animation: comboScale 0.3s ease;
+}
+
+/* Game Menu */
+.game-menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.start-button {
+  background: linear-gradient(135deg, #FF69B4, #ff4da6);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+}
+
+.start-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+}
+
+/* Game Over */
+.game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  border: 2px solid #FF69B4;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Animations */
+@keyframes titleAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes comboScale {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
